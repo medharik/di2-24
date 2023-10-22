@@ -25,7 +25,6 @@
             <?php for ($i = 1; $i <= 10; $i++) {
                 $prix = random_int(10, 1000);
                 $qte = random_int(0, 20);
-
             ?>
                 <tr>
                     <th scope="row"><?= $i; ?></th>
