@@ -34,9 +34,25 @@ echo "<p>c est $c</p>";
 echo "<pre>";
 print_r($ali);
 echo "</pre>";
-//
+//create array with 3 integer
+$array=[1,2,3];
+//second one 
+$array2=[4,5,2];
+//find same values 
+$sameValues=[...$array,...$array2];
+//display results
+print_r($sameValues);
+//use foreach to display
+foreach ($sameValues as $k => $v){
+    if(is_int($v)){
+        echo "$v "; 
+        }else{
+            print_r($v);
+            }
+            }
+            ?>
 
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
