@@ -9,6 +9,7 @@ foreach ($dell as $k => $v) {
 $stock = [0 => $hp, 1 => $dell];
 // $key => $produit
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

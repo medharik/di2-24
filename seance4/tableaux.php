@@ -8,11 +8,19 @@ $t2 = ["ali", 17, 1010, 0.5,["ali","test"]];
 $t2[4] = 200;
 $t2[10] = "test 10";
 $t2[1000] = "c'est push";
+
+// Q1 : 
+print_r($t2);
 // $t2[]
 //supprimer  un elem,en
 unset($t2[10]);
+//Q2 :
+print_r($t2);
 $t2[10] = "encore une fois un 10";
 $t2[] = "test push 2";
+//Q3 : 
+print_r($t2);
+
 // int c[3];
 // tableau associatif (key => value)//hash, map
 $a = ["nom" => 'Doe', 'prenom' => 'john', 'age' => 10];
@@ -20,8 +28,14 @@ $a[] = 100;
 $a[] = 200;
 $a["nom"] = "ALami";
 $a["genre"] = "homme";
+//Q4
 echo $a["nom"], $a[0], $a[1];
 
+$a[]=[1,7,["ali","rim"]];
+$a[2][]="test";
+$t2=$a;
+//Q5
+print_r($t2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
