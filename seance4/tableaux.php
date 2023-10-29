@@ -11,6 +11,7 @@ $t2[1000] = "c'est push";
 
 // Q1 : 
 print_r($t2);
+
 // $t2[]
 //supprimer  un elem,en
 unset($t2[10]);
