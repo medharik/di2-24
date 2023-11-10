@@ -24,10 +24,11 @@
     <button>envoyer</button>
 </form>
 <hr>
-<form action="form_price.php" method="post">
+<form action="form_price.php" >
     login : <input type="text" name="login" id="">
     mot de passe  : <input type="password" name="passe" id="">
     <button>envoyer</button>
 </form>
+
 </body>
 </html>
