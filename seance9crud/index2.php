@@ -1,11 +1,7 @@
 <?php 
 $cnx=mysqli_connect("localhost",'root','','db1');
 $result=mysqli_query($cnx,"select * from produit order by id desc");
-// print_r($result->num_rows);
-//  $p=$result->fetch_assoc();
-// print_r($result);
 
-// print_r($p);
 
 ?><!DOCTYPE html>
 <html lang="en">
