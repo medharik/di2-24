@@ -8,6 +8,10 @@
 </head>
 
 <body>
+<?php include "menu.php";?>
+<?php include_once "menu.php";
+ 
+?>
 
     <h2>Nouveau produit</h2>
     <form action="store.php" method="post">
