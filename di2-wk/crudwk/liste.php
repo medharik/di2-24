@@ -20,8 +20,11 @@ $result = mysqli_query($cnx, " SELECT * FROM produit ");
     <h2 class="text-center text-primary fs-4">Liste des produits </h2>
     <a href="create.php" class="btn btn-success">Nouveau produit</a>
     <!-- table>tr*2>td*4 -->
+    <form action="deletem.php" method="post">
+
     <table class="table">
         <tr>
+            <td>#</td>
             <td>id</td>
             <td>libelle</td>
             <!-- <td>prix</td> -->
@@ -29,6 +32,7 @@ $result = mysqli_query($cnx, " SELECT * FROM produit ");
         </tr>
         <?php while ($produit = $result->fetch_assoc()) { ?>
             <tr>
+                <td><input type="checkbox" name="id[]" id="k<?=$produit['id']?>" value="<?=$produit['id']?>"></td>
                 <td><?=$produit['id']?></td>
                 <td><?=$produit['libelle']?></td>
                 <!-- <td><?=$produit['prix']?></td> -->
@@ -41,6 +45,10 @@ $result = mysqli_query($cnx, " SELECT * FROM produit ");
 
         <?php } ?>
     </table>
+    <div class="my-3">
+        <button class="btn btn-sm btn-danger">Supprimer</button>
+    </div>
+    </form>
 </body>
 
 </html>
