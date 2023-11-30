@@ -1,4 +1,4 @@
-<?php $cnx=mysqli_connect("localhost",'root','','db1');
+<?php $cnx=mysqli_connect("localhost",'root','','db1',3307);
 
 function proteger($data)  {
     $resultat="";
