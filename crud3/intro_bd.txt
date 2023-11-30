@@ -1,0 +1,15 @@
+DEFINITION  :
+BASE DE DONNEES : ENSEMBLE DE DONNEES STRUCTUREES et PERSISTENTES 
+une base de donnees est persistente : donnees restent  entregistrees dans le disque dur
+
+SGBDR : SYSTEME DE GESTION DES BASE DE DONNEES RELATIONNELLES, EXEMPLE : 
+micrsoft access , microsoft sql server
+oracle 
+mysql server 
+postgesql
+...
+bases de donnees SQL : 
+SQL : STRUCTURED QUERY LANGUAGE : langage de requetes struturees ,
+ 
+
+

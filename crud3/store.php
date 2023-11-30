@@ -2,14 +2,16 @@
 // $libelle=$_POST['libelle'];['libelle'=>'hp']
 // $prix=$_POST['prix'];
 include_once "connect.php";
-
 // print_r($_POST);
-// echo "<hr>";
+// echo "<br>";
 // print_r($_FILES['chemin']);
+
 $name=$_FILES['chemin']['name'];
 $tmp=$_FILES['chemin']['tmp_name'];
-$cheminDB="images/$name";
-move_uploaded_file($tmp,$cheminDB);
+$to="uploads/$name";
+move_uploaded_file($tmp,$to);
+
+
 // exit();
 // extract($_POST);
 
@@ -19,7 +21,7 @@ move_uploaded_file($tmp,$cheminDB);
 // extract($t);
 $t=array_map("proteger",$_POST);
 extract($t);
-$result=mysqli_query($cnx,"insert into produit(libelle,prix,chemin) values('$libelle',$prix,'$cheminDB')");
+$result=mysqli_query($cnx,"insert into produit(libelle,prix,chemin) values('$libelle',$prix,'$to')");
 //redirection vers la page liste.php
 header("location:liste.php");
 ?>

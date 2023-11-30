@@ -28,7 +28,7 @@ $result=mysqli_query($cnx,"select * from produit order by id desc");
             <td><input type="checkbox" name="check[]" id="check<?=$p['id']?>" value="<?=$p['id']?>"></td>
             <td><?=$p['id']?></td>
             <td><?=$p['libelle']?></td>
-            <td><img src="<?=$p['chemin']?>" width="150" alt=""></td>
+            <td><img src="<?=$p['chemin']?>" width="150"></td>
             <td><a onclick="return confirm('supprimer?') " href="del.php?id=<?=$p['id']?>">Supprimer</a>
         <a href="show.php?id=<?=$p['id']?>">Consulter</a>
         </td>
