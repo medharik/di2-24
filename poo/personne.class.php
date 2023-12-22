@@ -1,20 +1,41 @@
-<?php
+<?php 
+require_once "Utils.class.php";
 class Personne{
-    public $nom;
-    public $prenom;
-    public $age;
-    function __construct($nom, $prenom ,$age) {
-        $this->nom=$nom;
-        $this->prenom=$prenom;
-        $this->age=$age;
+    protected $_nom;
+    protected $_prenom;
+    protected $_age;
+    protected static $langue ;//variable static (variable de classe)
+    public function __construct($nom="", $prenom="",$age=0){
+        $this->_nom=$nom;
+        $this->_prenom=$prenom;
+        $this->_age=$age;
     }
+    function afficher()  {
 
-function  afficher(){
-    echo "<hr>";
-    echo "Nom :".$this->nom."<br>";
-    echo "Prenom :". $this->prenom . "<br>";
-    echo "Age :" . $this->age. "<br>";}
+        echo "<h2>$this->_nom $this->_prenom a $this->_age ans</h2>";
+    }
+   
+
+public  function save()  {
+   $cnx= Utils::connecter_db();
+ $rp=  $cnx->prepare("insert into personne(nom,prenom,age) values(?,?,?)");
+$rp->execute([$this->_nom,$this->_prenom,$this->_age]);
+}
+
+public function update($id)  {
+   $cnx= Utils::connecter_db();
+ $rp=  $cnx->prepare("update personne set nom=?,prenom=?, age=? where id=?");
+$rp->execute([$this->_nom,$this->_prenom,$this->_age,$id]);
+}
+
+
+
+
+
+
 
 
 }
+
+
 ?>

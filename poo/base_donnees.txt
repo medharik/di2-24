@@ -1,0 +1,10 @@
+Terminologie : 
+
+base de donnees : ensemble de donnees structurees et persistente
+SGBDR : SYSTEMES DE GESTION DES BASES DE DONNEES RELATIONNELLES 
+EXEMPLE :
+    MS ACCESS
+    MS SQL SERVER
+    MYSQL SERVER
+    ORACLE 
+    POSTGRESQL
