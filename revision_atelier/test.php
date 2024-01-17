@@ -5,6 +5,7 @@ include_once "Employee.class.php";
 //instancier un employee :  ali
 //Class : Employee
 //Objet : ali
+//instancier 
 $ali = new Employee("ALAMI","ALI",9000);
 $ali->ajouter_employee();
 
