@@ -30,5 +30,21 @@ try {
 }
 
 
+//une methode pour  recuperer tous les  employes dans la bd : 
+public static function all() {
+    try {
+    $cnx= Utils::connecter_db();
+       $rp= $cnx->prepare("select * from employee");
+       $rp->execute();
+       $resultat=$rp->fetchAll();
+       return $resultat;
+
+    } catch (\Throwable $th) {
+        echo "Erreur de selection des employes ".$th->getMessage();
+    }
+    
+    }
+
+
 }
 
