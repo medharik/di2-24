@@ -28,23 +28,24 @@ try {
 }
 
 }
+//une methode pour  ajouter un employe dans la bd : 
+public function modifier_employee($id) {
+try {
+       //connection db
+       $cnx= Utils::connecter_db();
+       //preparer une requete SQL 
+      $rp= $cnx->prepare("update employee set nom=?,prenom=?, salaire=? where id=?");
+       //execution
+   $rp->execute([$this->_nom,$this->_prenom,$this->_salaire,$id]);
+} catch (\Throwable $th) {
+    echo "Erreur de modification d'un employe ".$th->getMessage();
+}
+
+}
 
 
-//une methode pour  recuperer tous les  employes dans la bd : 
-public static function all() {
-    try {
-    $cnx= Utils::connecter_db();
-       $rp= $cnx->prepare("select * from employee");
-       $rp->execute();
-       $resultat=$rp->fetchAll();
-       return $resultat;
 
-    } catch (\Throwable $th) {
-        echo "Erreur de selection des employes ".$th->getMessage();
-    }
-    
-    }
-
+   
 
 }
 

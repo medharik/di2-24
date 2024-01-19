@@ -1,7 +1,7 @@
 <?php 
 include_once "Utils.class.php";
-$employees=Utils::all("employee");
-// print_r($employees);
+$departments=Utils::all("department");
+// print_r($departments);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,29 +13,29 @@ $employees=Utils::all("employee");
   </head>
   <body>
     <div class="container">
-      <form action="delete_employee.php" method="post">
+      <form action="delete_department.php" method="post">
     <table class="table">
   <thead>
     <tr>
       <th></th>
       <th scope="col">#</th>
-      <th scope="col">Nom Complet</th>
-      <th scope="col">Salaire</th>
+      <th scope="col">Nom </th>
+      <th scope="col">Adresse</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
 
    
-    <?php foreach ($employees as  $e) {   ?>
+    <?php foreach ($departments as  $e) {   ?>
     <tr>
       <th><input type="checkbox" name="ids[]" id="" value="<?=$e['id']?>"></th>
       <th scope="row"><?=$e['id']?></th>
-      <td><?=$e['nom']?> <?=$e['prenom']?></td>
-      <td><?=$e['salaire']?></td>
+      <td><?=$e['nom']?></td>
+      <td><?=$e['adresse']?></td>
       <td>
-        <a href="delete_employee.php?id=<?=$e['id']?>" class="btn btn-danger">S</a>
-        <a href="edit_employee.php?id=<?=$e['id']?>" class="btn btn-warning">M</a>
+        <a href="delete_department.php?id=<?=$e['id']?>" class="btn btn-danger">S</a>
+        <a href="edit_department.php?id=<?=$e['id']?>" class="btn btn-warning">M</a>
       </td>
     </tr>
   <?php } ?>

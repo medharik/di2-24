@@ -34,5 +34,19 @@ class Employee
             echo "Erreur d'ajour d'un employe " . $th->getMessage();
         }
     }
+    public   function supprimer_employee($id)
+    {
+
+        try {
+            //connexion a la bd
+            $cnx = Utils::connect_db();
+            //prepare SQL
+            $rp = $cnx->prepare("delete from employee where id=?");
+            //exercute 
+            $rp->execute([$id]);
+        } catch (\Throwable $th) {
+            echo "Erreur de suppression d'un employe " . $th->getMessage();
+        }
+    }
    
 }
