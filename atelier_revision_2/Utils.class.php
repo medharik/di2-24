@@ -11,7 +11,7 @@ const PASSE="";
 
     try {
         $cnx = new PDO('mysql:host=localhost;dbname=dbrevisionpartiel11',"root" , self::PASSE);//throws exception
-        $cnx->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+         $cnx->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
         // echo "TEST";
 // $cnx->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
       return $cnx;

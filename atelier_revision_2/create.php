@@ -21,11 +21,10 @@
       
       departement : 
       <select name="department_id">
-<?php ?>
-<?php foreach ($departements as  $dep) {
-    ?>
-        <option value="<?=$dep->id?>"><?=$dep->nom?></option>
-<?php }?>
+<?php foreach ($departements as $dep) {
+?>
+<option value="<?=$dep['id']?>"><?=$dep['nom']?></option>
+<?php } ?>
       </select>
         <button>Ajouter</button>
 </form>

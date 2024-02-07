@@ -55,7 +55,7 @@ class Employee
     static public function getEmployeesDepartments(){
         try {
             $cnx = Utils::connect_db();
-            $rp = $cnx->prepare("select e.*, d.id, d.nom as dep_nom, d.adresse from  employees e left join departments d on e.department_id=d.id;
+            $rp = $cnx->prepare("select e.*, d.id, d.nom as dep_nom, d.adresse from  employees e left  join departments d on e.department_id=d.id;
             ");
             $rp->execute();
             return $rp->fetchAll();
