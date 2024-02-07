@@ -11,6 +11,7 @@ if(!empty($_POST['ids'])){
     foreach ($_POST['ids'] as $id) {
         
         Utils::supprimer($id,"employee");
+     
 }
 }
  header("location:liste_employees.php");

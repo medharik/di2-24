@@ -12,6 +12,9 @@ $departments=Utils::all("department");
 
   </head>
   <body>
+    <?php 
+    include_once "_menu.php";
+    ?>
     <div class="container">
       <form action="delete_department.php" method="post">
     <table class="table">
