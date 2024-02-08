@@ -20,12 +20,13 @@
         salaire : <input type="text" name="salaire" required id="">
       
       departement : 
-      <select name="department_id">
+      
 <?php foreach ($departements as $dep) {
 ?>
-<option value="<?=$dep['id']?>"><?=$dep['nom']?></option>
+<?=$dep['nom']?> 
+<input type="radio" names="department_id" value="<?=$dep['id']?>">
 <?php } ?>
-      </select>
+
         <button>Ajouter</button>
 </form>
 </body>

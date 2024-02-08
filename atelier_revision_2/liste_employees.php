@@ -1,7 +1,11 @@
 <?php 
 include_once "Utils.class.php";
 include_once "Employee.class.php";
-$employees=Employee::getEmployeesDepartments();
+
+if(isset($_GET['mot_cle'])){
+    $motCle = $_GET["mot_cle"];
+}else $motCle="";
+$employees=Employee::getEmployeesDepartments($motCle);
 //  print_r($employees);
 ?><!DOCTYPE html>
 <html lang="en">
@@ -16,6 +20,10 @@ $employees=Employee::getEmployeesDepartments();
     <?php 
     include_once "_menu.php";
     ?>
+    <form action="liste_employees.php" method="get" class="text-center" >
+
+        <input value="<?= $motCle ?>" type="search" name="mot_cle" id="" placeholder="Rechercher"> <button>Ok</button>
+    </form>
     <table class="table">
         <tr>
             <th>id</th>

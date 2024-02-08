@@ -52,15 +52,18 @@ class Employee
     }
       
     //liste des employees avec leurs departements
-    static public function getEmployeesDepartments(){
+    static public function getEmployeesDepartments($mot_cle=""){
         try {
             $cnx = Utils::connect_db();
-            $rp = $cnx->prepare("select e.*, d.id, d.nom as dep_nom, d.adresse from  employees e left  join departments d on e.department_id=d.id;
+            $rp = $cnx->prepare("select e.*, d.id as dep_id , d.nom as dep_nom, d.adresse from  employees e left  join departments d on e.department_id=d.id
+
+            where e.nom like ? or e.prenom like ? 
             ");
-            $rp->execute();
+            $rp->execute(["%$mot_cle%","%$mot_cle%"]);
             return $rp->fetchAll();
         } catch (\Throwable $th) {
-            echo "Erreur de selection des employees avec leurs departements " . $th->getMessage();
+            echo "Erreur recherche avec leurs departements " . $th->getMessage();
         }
     }
+   
 }

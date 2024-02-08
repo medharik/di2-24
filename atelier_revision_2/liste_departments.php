@@ -1,6 +1,7 @@
 <?php 
 include_once "Utils.class.php";
-$departments=Utils::all("departments");
+include_once "Department.class.php";
+$departments=Department::get_dep_count_emp();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,7 @@ $departments=Utils::all("departments");
             <th>id</th>
             <th>Nom </th>
             <th>adresse</th>
+            <th>Nombre d'employe</th>
             <th>Action</th>
         </tr>
 <?php  foreach ($departments as $e) {?>
@@ -28,6 +30,24 @@ $departments=Utils::all("departments");
             <td><?=$e['id']?></td>
             <td><?=$e['nom']?> </td>
             <td><?=$e['adresse']?></td>
+            <td>
+            <?php  if($e['nombre']!=0) {?>    
+            
+            <?=$e['nombre']?> : 
+            <?php 
+            
+           $emps= Department::find_emp_by_dep_id($e['id']);
+       
+           foreach ($emps as $em) {
+           
+            ?>
+          
+        <li><?=$em['nom']?> <?=$em['prenom']?></li>
+
+          <?php } }?>
+        
+        
+        </td>
             <td>
                 <a href="delete_department.php?id=<?=$e['id']?>" class="btn btn-danger" >S</a>
                 <a href="edit_department.php?id=<?=$e['id']?>" class="btn btn-warning" >Edit</a>
