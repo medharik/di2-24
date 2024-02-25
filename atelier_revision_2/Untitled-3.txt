@@ -1,0 +1,10 @@
+CMS : content management system (SGC)
+application web (html ,css , JS, php et mysql) permetant de creer  des sites web standards  :
+ blog, corporate,presse,...
+
+exemples :
+WORDPRESS  
+joomla 
+drupal
+magento
+prestashop  

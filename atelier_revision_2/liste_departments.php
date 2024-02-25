@@ -1,7 +1,8 @@
 <?php 
-include_once "Utils.class.php";
 include_once "Department.class.php";
-$departments=Department::get_dep_count_emp();
+$mot_cle="";
+if(isset($_GET['mot_cle'])) $mot_cle=$_GET['mot_cle'];
+$departments=Department::get_dep_and_cout_emp($mot_cle);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +18,18 @@ $departments=Department::get_dep_count_emp();
     <h3 class="text-center text-primary">
         Liste des departements
     </h3>
+
+    <form action="liste_departments.php" method="get" class="text-center my-3">
+<input type="search"  value="<?=$mot_cle?>" name="mot_cle" id=""> <button>Ok</button>
+
+    </form>
    <table class="table table-dark">
         <tr>
             <th>id</th>
             <th>Nom </th>
-            <th>adresse</th>
-            <th>Nombre d'employe</th>
+            <th>adresse</th> 
+            <th>nombre</th> 
+            <th>Employees</th> 
             <th>Action</th>
         </tr>
 <?php  foreach ($departments as $e) {?>
@@ -30,24 +37,20 @@ $departments=Department::get_dep_count_emp();
             <td><?=$e['id']?></td>
             <td><?=$e['nom']?> </td>
             <td><?=$e['adresse']?></td>
+            <td><?=$e['nombre']?></td>
             <td>
-            <?php  if($e['nombre']!=0) {?>    
-            
-            <?=$e['nombre']?> : 
-            <?php 
-            
-           $emps= Department::find_emp_by_dep_id($e['id']);
-       
-           foreach ($emps as $em) {
-           
-            ?>
-          
-        <li><?=$em['nom']?> <?=$em['prenom']?></li>
+<?php 
 
-          <?php } }?>
-        
-        
-        </td>
+$employees=Department::get_emps_by_dep_id($e['id']);
+
+?>
+
+<?php foreach ($employees as $em) {?>
+
+<li><?=$em['nom']?> <?=$em['prenom']?></li>
+    <?php }?>
+
+            </td>
             <td>
                 <a href="delete_department.php?id=<?=$e['id']?>" class="btn btn-danger" >S</a>
                 <a href="edit_department.php?id=<?=$e['id']?>" class="btn btn-warning" >Edit</a>

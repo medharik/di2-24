@@ -75,4 +75,50 @@ class Department
             echo "Erreur dans  get_dep_count_emp" . $th->getMessage();
         }
     }
+
+
+
+    public static    function get_dep_and_cout_emp($mot_cle="")
+    {
+    
+        try {
+            $cnx = Utils::connect_db();
+            $rp = $cnx->prepare("SELECT d.id,d.nom,d.adresse , count(e.id) as nombre from departments d left join employees e on d.id=e.department_id 
+             where d.nom like ? or d.adresse like ?
+            
+             GROUP by d.id,d.nom,d.adresse ");
+            $rp->execute(["%$mot_cle%","%$mot_cle%"]);
+            return $rp->fetchAll();
+        } catch (\Throwable $th) {
+            echo "Erreur dans la fct get_dep_and_cout_emp" . $th->getMessage();
+        }
+    }
+
+
+    public static    function get_emps_by_dep_id($departement_id)
+    {
+    
+        try {
+            $cnx = Utils::connect_db();
+            $rp = $cnx->prepare("select * from employees where department_id=? ");
+            $rp->execute([$departement_id]);
+            return $rp->fetchAll();
+        } catch (\Throwable $th) {
+            echo "Erreur dans la fct get_emps_by_dep_id" . $th->getMessage();
+        }
+    }
+
+
+    public static    function rechercher_departement($mot_cle)
+    {
+    
+        try {
+            $cnx = Utils::connect_db();
+            $rp = $cnx->prepare("select * from departments where nom like ? or adresse like ?");
+            $rp->execute(["%$mot_cle%","%$mot_cle%"]);
+            return $rp->fetchAll();
+        } catch (\Throwable $th) {
+            echo "Erreur dans la fct recherche" . $th->getMessage();
+        }
+    }
 }
